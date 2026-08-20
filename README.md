@@ -1658,6 +1658,8 @@ flowchart TD
 
 #### 8.12.5. ⚫ Verified Upstream Origin: The KuCoin Seed (May 29, 2026)
 
+*(Upstream funding chain discovery & on-chain verification credit: Community researcher `apez5547`)*
+
 *(Every transaction below was independently re-verified against the public Solana RPC on August 20, 2026 — all confirmed finalized.)*
 
 The wallet identified in Fact 1 (`J4zoc1r...`) was **not** fresh on August 3: it was itself created **nearly two months earlier**, seeded by a withdrawal from the publicly labeled **KuCoin hot wallet**. Its complete history (5,500+ transactions, walked back to the very first one) begins here:
