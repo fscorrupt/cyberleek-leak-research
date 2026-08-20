@@ -165,6 +165,7 @@ Everything we know about the August 2026 GTA VI gameplay leaks. Every claim back
     * ⚫ [8.12.2. The 3-Tier Arweave Wallet Pipeline (`3YLNDX...` / `52yK...` / `667Gfn...`)](#arweave-wallet-pipeline)
     * ⚫ [8.12.3. Solana Master Operator Key (`6Nq6...`) & Program Control](#solana-master-operator)
     * ⚫ [8.12.4. Complete Upstream Wallet Cluster & Funding Chain](#upstream-wallet-cluster)
+    * 8.12.5. ⚫ Verified Upstream Origin: The KuCoin Seed (May 29, 2026)(#kucoin-seed-upstream)
 
 * 🟢 **[9. How Everyone Reacted (Industry, Communities & Legal Responses)](#reactions)**
   * 🛑 [9.1. Stop Killing Games (Ross Scott) Official Disassociation](#reaction-skg)
@@ -1656,6 +1657,7 @@ flowchart TD
 5. **Fact 5 (Deployer & Authority Funding)**: On August 15 at 17:14:33 UTC, `3YLNDX...` funded master operator key `6Nq6KAzFKFCKDXYg1kqs23EuBBEWoWAgmBQAQtq4FaF3` with 4.61 SOL (`preBalance = 0`). Less than 90 minutes later (18:46 UTC), `6Nq6...` deployed the poll contract `7rAgHPLD...`.
 6. **Fact 6 (Ongoing Interaction)**: Wallet `3YLNDX...` appears in `Ec2qmcp...`'s transaction logs again on August 15 at 12:36 UTC, confirming active coordination across all three arms of the launch.
 
+<a id="kucoin-seed-upstream"></a>
 #### 8.12.5. ⚫ Verified Upstream Origin: The KuCoin Seed (May 29, 2026)
 
 *(Upstream funding chain discovery & on-chain verification credit: Community researcher `apez5547`)*
