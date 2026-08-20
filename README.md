@@ -166,6 +166,7 @@ Everything we know about the August 2026 GTA VI gameplay leaks. Every claim back
     * ⚫ [8.12.3. Solana Master Operator Key (`6Nq6...`) & Program Control](#solana-master-operator)
     * ⚫ [8.12.4. Complete Upstream Wallet Cluster & Funding Chain](#upstream-wallet-cluster)
     * ⚫ [8.12.5. Verified Upstream Origin: The KuCoin Seed (May 29, 2026)](#kucoin-seed-upstream)
+    * ⚫ [8.12.6. J4zoc1r and 26sZDub Are Also KuCoin Hot Wallets — July 5 Deposit & Additional Withdrawal References](#kucoin-j4-infrastructure)
 
 * 🟢 **[9. How Everyone Reacted (Industry, Communities & Legal Responses)](#reactions)**
   * 🛑 [9.1. Stop Killing Games (Ross Scott) Official Disassociation](#reaction-skg)
@@ -1697,6 +1698,50 @@ flowchart TD
 * The `$CYBERLEEK` mint `ApZuxdpz…` shows **both mint and freeze authorities revoked** and a supply of **999,990,703** (~1B) — consistent with the token section.
 
 > **🔎 What this does *not* prove:** "KuCoin" on `BmFdpraQhkiD…` is a **third-party explorer label**, not on-chain data, and a hot wallet is exchange infrastructure — not a personal wallet. What the chain proves is that someone **withdrew from a KuCoin account** to build these wallets roughly two months before the operation went live. Who holds that exchange account cannot be determined from public blockchain records.
+
+------
+
+<a id="kucoin-j4-infrastructure"></a>
+#### 8.12.6. ⚫ J4zoc1r and 26sZDub Are Also KuCoin Hot Wallets — July 5 Deposit & Additional Withdrawal References
+
+§8.12.5 traces the chain back to a KuCoin withdrawal on May 29 and correctly identifies `BmFdpraQhkiD…` as the KuCoin hot wallet. However `J4zoc1rFgpP2…` and `26sZDubW854z…` are also KuCoin hot wallet infrastructure — not wallets the operator personally controlled. The first address the operator actually took custody of is **`EjsB4qhcQv3zwXWqMbD739VA7nFc85f2egwTnkr3KGB2`**, which received the 156 SOL withdrawal on August 13 (Fact 2 in §8.12.4).
+
+**Evidence that J4zoc1r is KuCoin infrastructure**
+
+Every transfer between `J4zoc1r` and `26sZDub` carries an 8-character hex memo — the same withdrawal-reference pattern used throughout the KuCoin cluster. A personal wallet doesn't tag its own outgoing transfers with CEX reference IDs. A few examples:
+
+| Date (UTC) | Sig | Direction | Amount | Memo |
+|---|---|---|---|---|
+| 2026-08-04 ~01:00 | [`5nuWiFxa…`](https://explorer.solana.com/tx/5nuWiFxaL3S96sZaLvFjmwd1UNmvTWEmXLR32bmq1Zn3B93zrT8mnPntkS4f7mBXrUyRQgCsF8wvJgsxpjVoEC5k) | `J4zoc1r` → `26sZDub` | 31.53 SOL | `a8b33709` |
+| 2026-08-04 ~00:52 | [`cZS57D77…`](https://explorer.solana.com/tx/cZS57D77vUhLvs3LrXKbVv9GcTnwBueakHdtPbXhYAFtPqwbKxJLwxG8EoJN9653j1bDWJg6WUErZSXyBi9mgzc) | `J4zoc1r` → `26sZDub` | 38.81 SOL | `a80e4738` |
+
+These are the same 8-char hex pattern as `03772c77` (the 156 SOL withdrawal) and `dfc94084` (the Aug 3 seed). They represent individual KuCoin withdrawal events, not personal transfers.
+
+**A second KuCoin deposit leg — July 5, 2026**
+
+Roughly five weeks after the May 29 seed, a second short-lived KuCoin relay wallet (`GE5VNJFptoRUs9hMGYi5VEbC5uqZbbR8ypkhNxgxhihd`) made a single deposit into `J4zoc1r`:
+
+| # | Date (UTC) | Sig | Amount | Route | Memo |
+|---|---|---|---|---|---|
+| 1 | 2026-07-05 20:09:52 | [`4XAkuTZ4…`](https://explorer.solana.com/tx/4XAkuTZ4pohmRBCWquFbD6CzHXwzK7WESMNSUbdVWGgFTkgUCoqL2dwF3po4no6B1rY1uHHUMzDk4qxCb3dkumTa) | 89.98 SOL | `GE5VNJ…` → `J4zoc1r…` | `2b8debe6` |
+
+`GE5VNJFptoRUs9hMGYi5VEbC5uqZbbR8ypkhNxgxhihd` has **5 total lifetime transactions**, all within a ~5-minute window on July 5. Same pattern as the `9WwEfddZ` forwarder from May 29 — spun up, forwarded funds, went dormant. This is a second distinct KuCoin withdrawal event, undocumented until now, and it predates the August activity by over a month.
+
+**Running KuCoin withdrawal references in this cluster**
+
+Across all documented legs, at least five separate withdrawal references have been identified:
+
+| Memo | Date | Amount | Notes |
+|---|---|---|---|
+| `2b8debe6` | 2026-07-05 | 89.98 SOL | Via `GE5VNJ…` relay — new, this section |
+| `dfc94084` | 2026-08-03 | 0.102 SOL | Aug 3 seed into `26sZDub` (§8.12.5 Leg 3) |
+| `a80e4738` | 2026-08-04 | 38.81 SOL | `J4zoc1r` → `26sZDub` — new, this section |
+| `a8b33709` | 2026-08-04 | 31.53 SOL | `J4zoc1r` → `26sZDub` — new, this section |
+| `03772c77` | 2026-08-13 | 156.03 SOL | The 156 SOL withdrawal into `EjsB4…` (Fact 2) |
+
+Each is a separate withdrawal event in KuCoin's records, all traceable to the same account under legal process.
+
+> **🔎 Boundary clarification:** The §8.12.4 diagram labels `J4zoc1r` as "Earliest Upstream Seed" and `26sZDub` as "Operational Trading Wallet," implying the operator owned them. Based on the memo fingerprints above, both are KuCoin hot wallet infrastructure. The operator's on-chain footprint begins at `EjsB4qhcQv3zwXWqMbD739VA7nFc85f2egwTnkr3KGB2`.
 
 ------
 
