@@ -165,7 +165,7 @@ Everything we know about the August 2026 GTA VI gameplay leaks. Every claim back
     * ⚫ [8.12.2. The 3-Tier Arweave Wallet Pipeline (`3YLNDX...` / `52yK...` / `667Gfn...`)](#arweave-wallet-pipeline)
     * ⚫ [8.12.3. Solana Master Operator Key (`6Nq6...`) & Program Control](#solana-master-operator)
     * ⚫ [8.12.4. Complete Upstream Wallet Cluster & Funding Chain](#upstream-wallet-cluster)
-    * 8.12.5. ⚫ Verified Upstream Origin: The KuCoin Seed (May 29, 2026)(#kucoin-seed-upstream)
+    * ⚫ [8.12.5. Verified Upstream Origin: The KuCoin Seed (May 29, 2026)](#kucoin-seed-upstream)
 
 * 🟢 **[9. How Everyone Reacted (Industry, Communities & Legal Responses)](#reactions)**
   * 🛑 [9.1. Stop Killing Games (Ross Scott) Official Disassociation](#reaction-skg)
