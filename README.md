@@ -1675,6 +1675,12 @@ flowchart TD
     Seed -->|"0.102 SOL · Aug 3, 18:09 UTC"| Op["Operational Wallet<br><code>26sZDub…</code><br>(preBalance = 0)"]
 ```
 
+> **🔑 Key implication — KYC: the operator's verified identity exists in exchange records**
+>
+> Leg 1 is a **centralized-exchange withdrawal**: funds leave a hot wallet via a durable-nonce transaction and land in a **brand-new address** (this deposit is the first-ever transaction of `9WwEfddZ…`). That means someone holding a **KuCoin account** initiated a withdrawal to an address they control. KuCoin — like other major centralized exchanges — has **required identity verification for withdrawals since 2023**, so the account behind this withdrawal must have had **KYC documents on file**.
+>
+> The blockchain cannot expose that identity — but the identity **exists**: it sits in KuCoin's records, tied to this entire downstream cluster through the withdrawal destination. A subpoena or legal request to KuCoin for the account that funded `9WwEfddZ…` resolves the seed of the whole operation to a real, verified person. (The standard countermeasure — a purchased or rented KYC'd account — is itself a traceable act.)
+
 > **⚠️ Corrections to the Fact 1 text:**
 > 1. The Fact 1 address string was corrupted in transcription (`J4zoc1rFgPP2Mrknb48BRRoQW9PSGIVIPyuemkKMpAnV` is not valid base58). The verified signer of the August 3 seed transaction is `J4zoc1rFgpP2Mrknb48BRRoQW9P5GiVtPyuemkKMpAnV`.
 > 2. The widely repeated "1.1 SOL seed" conflates two legs: **1.1 SOL** is what the KuCoin wallet sent to the forwarder, while the forwarder forwarded **1.0 SOL** to `J4zoc1r…`. The transfer into the operational wallet was **0.102 SOL**.
