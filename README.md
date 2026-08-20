@@ -1649,12 +1649,44 @@ flowchart TD
 ```
 
 ##### Key Verified Blockchain Facts:
-1. **Fact 1 (The Upstream Origin)**: The earliest tracked wallet in the chain is `J4zoc1rFgPP2Mrknb48BRRoQW9PSGIVIPyuemkKMpAnV`, which transferred 0.102 SOL to main operational wallet `26sZDubW854zGAasvrUaRAgY54MiC97CEHWZKPRMPMQ9` on August 3, 2026 at 18:09 UTC (`preBalance = 0`).
+1. **Fact 1 (The Upstream Origin)**: The earliest tracked wallet in the chain is [`J4zoc1rFgpP2Mrknb48BRRoQW9P5GiVtPyuemkKMpAnV`](https://explorer.solana.com/address/J4zoc1rFgpP2Mrknb48BRRoQW9P5GiVtPyuemkKMpAnV) *(address corrected — the previously published string was corrupted)*, which transferred 0.102 SOL to main operational wallet `26sZDubW854zGAasvrUaRAgY54MiC97CEHWZKPRMPMQ9` on August 3, 2026 at 18:09 UTC (`preBalance = 0`). See **§8.12.5** for this wallet's own upstream funding (May 29, 2026).
 2. **Fact 2 (The Relay Pipeline)**: The operational wallet moved 156.03 SOL through temporary relay wallets `EjsB4qhc...` and `2ZdUUvrr...` on August 13 before combining into common campaign funder `3YLNDXnV9fNysDWaD39uQxwxeSaMFeAswvoQPZNvuNA4`.
 3. **Fact 3 (Domain Setup Funding)**: On August 14 at 09:42:10 UTC, `3YLNDX...` sent 1.0 SOL directly to `52yKvgZKczDMUNBH4V8RSNG7tn9y8SxeyTavYBZmwDHZ` (`preBalance = 0`), which registered the ArNS domains `leek`, `cyberleek`, and backup typos.
 4. **Fact 4 (Token Launch Funding)**: On August 15 at 09:49 UTC, `3YLNDX...` funded `Ec2qmcpCCD9hjahAcquiQf5JkZWCK68BUahCje1izYC7` (`preBalance = 0`), which sent 10 SOL to `Hok9nbV89yBSKCttxe3goqajwbiqQa9mtHvQBsbJH3Np`. `Hok9nbV...` minted 1 Billion `$CYBERLEEK` tokens at 14:23 UTC and subsequently cashed out.
 5. **Fact 5 (Deployer & Authority Funding)**: On August 15 at 17:14:33 UTC, `3YLNDX...` funded master operator key `6Nq6KAzFKFCKDXYg1kqs23EuBBEWoWAgmBQAQtq4FaF3` with 4.61 SOL (`preBalance = 0`). Less than 90 minutes later (18:46 UTC), `6Nq6...` deployed the poll contract `7rAgHPLD...`.
 6. **Fact 6 (Ongoing Interaction)**: Wallet `3YLNDX...` appears in `Ec2qmcp...`'s transaction logs again on August 15 at 12:36 UTC, confirming active coordination across all three arms of the launch.
+
+#### 8.12.5. ⚫ Verified Upstream Origin: The KuCoin Seed (May 29, 2026)
+
+*(Every transaction below was independently re-verified against the public Solana RPC on August 20, 2026 — all confirmed finalized.)*
+
+The wallet identified in Fact 1 (`J4zoc1r...`) was **not** fresh on August 3: it was itself created **nearly two months earlier**, seeded by a withdrawal from the publicly labeled **KuCoin hot wallet**. Its complete history (5,500+ transactions, walked back to the very first one) begins here:
+
+| Leg | Date (UTC) | Transaction | Amount | Flow | Notes |
+|:---|:---|:---|:---|:---|:---|
+| 1 | 2026-05-29 11:28:27 | [`2fdKbaR…`](https://explorer.solana.com/tx/2fdKbaRjAu7DZqgU6nbCV2iCNg4AcUriSHti4BpfbxNqfU3WpC6oWxUU52bDdMrHDGcDQWWxVGVgRw7QCDkZMa4q) | 1.1 SOL | `BmFdpraQhkiD…` → `9WwEfddZ…` | **Durable-nonce withdrawal** (`advanceNonce`) — the standard automated exchange withdrawal pattern. First-ever transaction of `9WwEfddZ…` |
+| 2 | 2026-05-29 11:43:12 | [`CRsYdha…`](https://explorer.solana.com/tx/CRsYdhaGDTYAfsNSc2fvESnQzNFXipL4WvwnB33otZPaNi3rxXFYZTYT91N5zdKnF7x6Mf14Mcc61Bxm4pAbTsH) | 1.0 SOL | `9WwEfddZ…` → `J4zoc1r…` | **Genesis transaction of `J4zoc1r…`** — nothing precedes this transfer |
+| 3 | 2026-08-03 18:09:57 | [`4K4V7pYN…`](https://explorer.solana.com/tx/4K4V7pYNyzJ6fXqGQsWhFrXfchyTnf8nYcaSpwud7SED8a5JjBKEMdhScvpxRwqmKWC4bYT8tGjT7f8dH71xJX22) | 0.102 SOL | `J4zoc1r…` → `26sZDubW…` | The Fact 1 seed transfer (recipient `preBalance = 0`), memo `dfc94084` |
+
+```mermaid
+flowchart TD
+    KC["KuCoin Hot Wallet<br><code>BmFdpraQhkiD…</code><br>(explorer label)"] -->|"1.1 SOL · May 29, 11:28 UTC<br>(durable-nonce withdrawal)"| Fwd["Forwarder<br><code>9WwEfddZ…</code><br>(genesis)"]
+    Fwd -->|"1.0 SOL · May 29, 11:43 UTC"| Seed["Earliest Upstream Seed<br><code>J4zoc1r…</code><br>(genesis)"]
+    Seed -->|"0.102 SOL · Aug 3, 18:09 UTC"| Op["Operational Wallet<br><code>26sZDub…</code><br>(preBalance = 0)"]
+```
+
+> **⚠️ Corrections to the Fact 1 text:**
+> 1. The Fact 1 address string was corrupted in transcription (`J4zoc1rFgPP2Mrknb48BRRoQW9PSGIVIPyuemkKMpAnV` is not valid base58). The verified signer of the August 3 seed transaction is `J4zoc1rFgpP2Mrknb48BRRoQW9P5GiVtPyuemkKMpAnV`.
+> 2. The widely repeated "1.1 SOL seed" conflates two legs: **1.1 SOL** is what the KuCoin wallet sent to the forwarder, while the forwarder forwarded **1.0 SOL** to `J4zoc1r…`. The transfer into the operational wallet was **0.102 SOL**.
+> 3. The forwarder received its funding **14 minutes 45 seconds** before forwarding the seed — not "seconds earlier".
+
+**Independently corroborated details (consistent with §8.12.4):**
+* First-ever transaction of `6Nq6KAz…`: **August 15, 17:14:33 UTC** — exact match with Fact 5's funding timestamp (`preBalance = 0`).
+* Program `7rAgHPLD…` deployed by `6Nq6KAz…` on **August 15, 18:46 UTC** (log: `Deployed program`). Since then the same key has signed all 427 site-update transactions (`CreateLink`, `UpdateTabs`, `ProcessResults`).
+* Hub `26sZDubW…` totals **898 transactions** at time of writing (897 in the original research — one more has landed since).
+* The `$CYBERLEEK` mint `ApZuxdpz…` shows **both mint and freeze authorities revoked** and a supply of **999,990,703** (~1B) — consistent with the token section.
+
+> **🔎 What this does *not* prove:** "KuCoin" on `BmFdpraQhkiD…` is a **third-party explorer label**, not on-chain data, and a hot wallet is exchange infrastructure — not a personal wallet. What the chain proves is that someone **withdrew from a KuCoin account** to build these wallets roughly two months before the operation went live. Who holds that exchange account cannot be determined from public blockchain records.
 
 ------
 
